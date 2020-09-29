@@ -25,6 +25,7 @@ for test_case in range(1, T + 1):
     storeUse = {}
     repairQueue = deque()
     i, j, ans = 0, 0, 0
+
     while j<len(t) or aBusy or bBusy:
         while aBusy and aBusy[0][0] <= i:
             a1 = heapq.heappop(aBusy)
@@ -38,7 +39,7 @@ for test_case in range(1, T + 1):
             customer = t[j]
             a1 = heapq.heappop(aVacant)
             heapq.heappush(aBusy, (a1[1]+i, a1[0], a1[1], j+1))
-            j+=1
+            j += 1
         while repairQueue and bVacant:
             customer = repairQueue.popleft()
             b1 = heapq.heappop(bVacant)
